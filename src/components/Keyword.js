@@ -1,15 +1,21 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, Pressable } from "react-native";
 
-export default function Keyword({ item, setCount }) {
+export default function Keyword({ item, setCount, count }) {
   const [isSelected, setIsSelected] = useState(item.selected);
 
   const selectKeyword = () => {
-    item.selected = !item.selected;
-    setIsSelected((current) => !current);
-    if (item.selected) {
-      setCount((current) => current + 1);
-    } else {
+    if (count < 2) {
+      item.selected = !item.selected;
+      setIsSelected((current) => !current);
+      if (item.selected) {
+        setCount((current) => current + 1);
+      } else {
+        setCount((current) => current - 1);
+      }
+    } else if (count == 2 && item.selected) {
+      item.selected = false;
+      setIsSelected((current) => !current);
       setCount((current) => current - 1);
     }
   };

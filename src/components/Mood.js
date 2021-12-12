@@ -4,7 +4,7 @@ import { Pressable, StyleSheet, View } from "react-native";
 import Keyword from "./Keyword";
 import { mood1, mood2, mood3, mood4 } from "../mood";
 
-export default function Mood({ navigation, setCount }) {
+export default function Mood({ navigation, setCount, count }) {
   return (
     <View style={styles.keywordView}>
       <View style={styles.moodView}>
@@ -12,6 +12,7 @@ export default function Mood({ navigation, setCount }) {
           <Keyword
             navigation={navigation}
             setCount={setCount}
+            count={count}
             key={item.id}
             item={item}
           />
@@ -22,6 +23,7 @@ export default function Mood({ navigation, setCount }) {
           <Keyword
             navigation={navigation}
             setCount={setCount}
+            count={count}
             key={item.id}
             item={item}
           />
@@ -32,6 +34,7 @@ export default function Mood({ navigation, setCount }) {
           <Keyword
             navigation={navigation}
             setCount={setCount}
+            count={count}
             key={item.id}
             item={item}
           />
@@ -42,6 +45,7 @@ export default function Mood({ navigation, setCount }) {
           <Keyword
             navigation={navigation}
             setCount={setCount}
+            count={count}
             key={item.id}
             item={item}
           />

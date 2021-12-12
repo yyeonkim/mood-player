@@ -1,10 +1,11 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 import Mood from "../components/Mood";
+import CompleteBtn from "../components/CompleteBtn";
 
-export default function Home() {
+export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
@@ -12,7 +13,8 @@ export default function Home() {
       <Text style={[styles.text, styles.subTitle]}>
         아래 키워드를 선택해주세요 (2개)
       </Text>
-      <Mood />
+      <Mood navigation={navigation} />
+      <CompleteBtn />
     </View>
   );
 }

@@ -1,22 +1,15 @@
-import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-import Mood from "../components/Mood";
-import CompleteBtn from "../components/CompleteBtn";
-
-export default function Home({ navigation }) {
-  const [count, setCount] = useState(0);
-
+export default function Music({ navigation }) {
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" />
-      <Text style={[styles.title, styles.text]}>오늘 기분이 어떠신가요?</Text>
-      <Text style={[styles.text, styles.subTitle]}>
-        아래 키워드를 선택해주세요 (2개)
+      <Text style={[styles.title, styles.text]}>
+        이 노래를 추천드리고 싶네요
       </Text>
-      <Mood navigation={navigation} setCount={setCount} />
-      <CompleteBtn count={count} />
+      <Text style={[styles.text, styles.subTitle]}>
+        노래를 가져오는 중입니다.
+      </Text>
     </View>
   );
 }

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Pressable, StyleSheet, View } from "react-native";
+import React from "react";
+import { StyleSheet, View } from "react-native";
 
 import Keyword from "./Keyword";
 import { mood1, mood2, mood3, mood4 } from "../mood";

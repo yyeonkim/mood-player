@@ -10,13 +10,13 @@ export default function Home({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
       <Text style={[styles.title, styles.text]}>오늘 기분이 어떠신가요?</Text>
       <Text style={[styles.text, styles.subTitle]}>
         아래 키워드를 선택해주세요 (2개)
       </Text>
       <Mood navigation={navigation} setCount={setCount} count={count} />
-      <CompleteBtn count={count} />
+      <CompleteBtn count={count} navigation={navigation} setCount={setCount} />
     </View>
   );
 }

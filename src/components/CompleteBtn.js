@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
-import { mood1, mood2, mood3, mood4 } from "../mood";
-
-export default function CompleteBtn({ count }) {
+export default function CompleteBtn({ count, navigation }) {
   const [disabled, setDisabled] = useState(true);
 
   useEffect(() => {
@@ -14,15 +12,14 @@ export default function CompleteBtn({ count }) {
     }
   }, [count]);
 
-  const moveToScreen = () => {
-    mood1.map((item) => (item.selected = false));
-    mood2.map((item) => (item.selected = false));
-    mood3.map((item) => (item.selected = false));
-    mood4.map((item) => (item.selected = false));
-  };
-
   return (
-    <Pressable style={styles.button(disabled)} disabled={disabled}>
+    <Pressable
+      style={styles.button(disabled)}
+      disabled={disabled}
+      onPressOut={() => {
+        navigation.navigate("Music");
+      }}
+    >
       <Text style={styles.text}>완료</Text>
     </Pressable>
   );

@@ -29,7 +29,7 @@ export default function Playlist() {
                       </style>
                       </head> 
                       <body>
-                          <iframe class="player" src="https://open.spotify.com/embed/playlist/${playlistId}?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                      <iframe src="https://open.spotify.com/embed/playlist/${playlistId}?utm_source=generator&theme=0" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                       </body>
                     </html>
               `,
@@ -42,6 +42,6 @@ export default function Playlist() {
 
 const styles = StyleSheet.create({
   playlist: {
-    height: 27,
+    height: 130,
   },
 });

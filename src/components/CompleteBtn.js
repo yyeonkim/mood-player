@@ -4,7 +4,7 @@ import { Pressable, StyleSheet, Text } from "react-native";
 export default function CompleteBtn({ count, mood, navigation }) {
   const [disabled, setDisabled] = useState(true);
 
-  const getKeywords = () => {
+  const getSelectedMood = () => {
     let selectedMood = [];
     // Get selected mood
     for (let i = 0; i < 4; i++) {
@@ -14,10 +14,10 @@ export default function CompleteBtn({ count, mood, navigation }) {
       }
       if (selectedMood.length === 2) break;
     }
-    // Get keywords from selected mood
     const keywords = [selectedMood[0].keyword, selectedMood[1].keyword];
+    const gradientColor = selectedMood[1].color;
 
-    return keywords;
+    return { keywords, gradientColor };
   };
 
   useEffect(() => {
@@ -33,7 +33,8 @@ export default function CompleteBtn({ count, mood, navigation }) {
       style={styles.button(disabled)}
       disabled={disabled}
       onPressOut={() => {
-        navigation.navigate("Music", { keywords: getKeywords() });
+        const { keywords, gradientColor } = getSelectedMood();
+        navigation.navigate("Music", { keywords, gradientColor });
       }}
     >
       <Text style={styles.text}>완료</Text>

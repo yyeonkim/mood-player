@@ -11,8 +11,6 @@ export default function Mood({ setCount, count, mood, setMood }) {
           <Keyword
             setCount={setCount}
             count={count}
-            mood={mood}
-            setMood={setMood}
             key={item.id}
             item={item}
           />
@@ -23,8 +21,6 @@ export default function Mood({ setCount, count, mood, setMood }) {
           <Keyword
             setCount={setCount}
             count={count}
-            mood={mood}
-            setMood={setMood}
             key={item.id}
             item={item}
           />
@@ -35,8 +31,6 @@ export default function Mood({ setCount, count, mood, setMood }) {
           <Keyword
             setCount={setCount}
             count={count}
-            mood={mood}
-            setMood={setMood}
             key={item.id}
             item={item}
           />
@@ -47,8 +41,6 @@ export default function Mood({ setCount, count, mood, setMood }) {
           <Keyword
             setCount={setCount}
             count={count}
-            mood={mood}
-            setMood={setMood}
             key={item.id}
             item={item}
           />

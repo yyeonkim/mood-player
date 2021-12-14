@@ -15,7 +15,9 @@ export default function CompleteBtn({ count, mood, navigation }) {
       if (selectedMood.length === 2) break;
     }
     const keywords = [selectedMood[0].keyword, selectedMood[1].keyword];
-    const gradientColor = selectedMood[1].color;
+    // Set random color between mood
+    const colorIndex = Math.floor(Math.random() * 2);
+    const gradientColor = selectedMood[colorIndex].color;
 
     return { keywords, gradientColor };
   };

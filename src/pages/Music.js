@@ -1,11 +1,19 @@
 import React from "react";
-import { StyleSheet, View, Text, StatusBar, Image } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  StatusBar,
+  Image,
+  Pressable,
+} from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import { CommonActions } from "@react-navigation/native";
 
 import Playlist from "../components/Playlist";
 import Loading from "../components/Loading";
 
-export default function Music({ route }) {
+export default function Music({ route, navigation }) {
   const goBackIcon = "../../assets/outline_arrow_back_ios_white_24dp.png";
   const { keywords, gradientColor } = route.params;
   const randomNum = Math.ceil(Math.random() * 50);
@@ -16,7 +24,14 @@ export default function Music({ route }) {
       style={styles.container}
     >
       <StatusBar style="light" />
-      <Image style={styles.icon} source={require(goBackIcon)} />
+      <Pressable
+        style={styles.icon}
+        onPressOut={() => {
+          navigation.dispatch(CommonActions.goBack());
+        }}
+      >
+        <Image source={require(goBackIcon)} />
+      </Pressable>
       <View style={styles.imageView}>
         <Image
           style={styles.backgroundImage}

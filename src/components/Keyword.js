@@ -8,6 +8,7 @@ export default function Keyword({ item, setCount, count }) {
     if (count < 2) {
       item.selected = !item.selected;
       setIsSelected((current) => !current);
+      // Count selected items
       if (item.selected) {
         setCount((current) => current + 1);
       } else {
@@ -15,7 +16,7 @@ export default function Keyword({ item, setCount, count }) {
       }
     } else if (count == 2 && item.selected) {
       item.selected = false;
-      setIsSelected((current) => !current);
+      setIsSelected(false);
       setCount((current) => current - 1);
     }
   };

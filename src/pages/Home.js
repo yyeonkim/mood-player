@@ -4,9 +4,11 @@ import { StyleSheet, Text, View } from "react-native";
 
 import Mood from "../components/Mood";
 import CompleteBtn from "../components/CompleteBtn";
+import { moodObj } from "../mood";
 
 export default function Home({ navigation }) {
   const [count, setCount] = useState(0);
+  const [mood, setMood] = useState(moodObj);
 
   return (
     <View style={styles.container}>
@@ -15,8 +17,8 @@ export default function Home({ navigation }) {
       <Text style={[styles.text, styles.subTitle]}>
         아래 키워드를 선택해주세요 (2개)
       </Text>
-      <Mood navigation={navigation} setCount={setCount} count={count} />
-      <CompleteBtn count={count} navigation={navigation} setCount={setCount} />
+      <Mood setCount={setCount} count={count} mood={mood} setMood={setMood} />
+      <CompleteBtn mood={mood} count={count} navigation={navigation} />
     </View>
   );
 }

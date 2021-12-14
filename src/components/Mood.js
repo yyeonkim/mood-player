@@ -2,50 +2,53 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 
 import Keyword from "./Keyword";
-import { mood1, mood2, mood3, mood4 } from "../mood";
 
-export default function Mood({ navigation, setCount, count }) {
+export default function Mood({ setCount, count, mood, setMood }) {
   return (
     <View style={styles.keywordView}>
       <View style={styles.moodView}>
-        {mood1.map((item) => (
+        {mood[0].map((item) => (
           <Keyword
-            navigation={navigation}
             setCount={setCount}
             count={count}
+            mood={mood}
+            setMood={setMood}
             key={item.id}
             item={item}
           />
         ))}
       </View>
       <View style={styles.moodView}>
-        {mood2.map((item) => (
+        {mood[1].map((item) => (
           <Keyword
-            navigation={navigation}
             setCount={setCount}
             count={count}
+            mood={mood}
+            setMood={setMood}
             key={item.id}
             item={item}
           />
         ))}
       </View>
       <View style={styles.moodView}>
-        {mood3.map((item) => (
+        {mood[2].map((item) => (
           <Keyword
-            navigation={navigation}
             setCount={setCount}
             count={count}
+            mood={mood}
+            setMood={setMood}
             key={item.id}
             item={item}
           />
         ))}
       </View>
       <View style={styles.moodView}>
-        {mood4.map((item) => (
+        {mood[3].map((item) => (
           <Keyword
-            navigation={navigation}
             setCount={setCount}
             count={count}
+            mood={mood}
+            setMood={setMood}
             key={item.id}
             item={item}
           />

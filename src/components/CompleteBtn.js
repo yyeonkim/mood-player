@@ -1,8 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text } from "react-native";
 
-export default function CompleteBtn({ count, navigation }) {
+export default function CompleteBtn({ count, mood, navigation }) {
   const [disabled, setDisabled] = useState(true);
+
+  const getKeywords = () => {
+    let selectedMood = [];
+    // Get selected mood
+    for (let i = 0; i < 4; i++) {
+      const selected = mood[i].filter((item) => item.selected === true);
+      if (selected.length !== 0) {
+        selectedMood.push(...selected);
+      }
+      if (selectedMood.length === 2) break;
+    }
+    // Get keywords from selected mood
+    const keywords = [selectedMood[0].keyword, selectedMood[1].keyword];
+
+    return keywords;
+  };
 
   useEffect(() => {
     if (count == 2) {
@@ -17,7 +33,7 @@ export default function CompleteBtn({ count, navigation }) {
       style={styles.button(disabled)}
       disabled={disabled}
       onPressOut={() => {
-        navigation.navigate("Music");
+        navigation.navigate("Music", { keywords: getKeywords() });
       }}
     >
       <Text style={styles.text}>완료</Text>

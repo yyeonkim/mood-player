@@ -25,13 +25,13 @@ export default function Playlist() {
                         
                         .player {
                             position: absolute;
-                            width: 100%;
                             left: 0;
+                            top: 0;
                         }
                       </style>
                       </head> 
                       <body>
-                      <iframe class="player" src="https://open.spotify.com/embed/playlist/${playlistId}?utm_source=generator&theme=0" width="100%" height=380 frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                      <iframe class="player" src="https://open.spotify.com/embed/playlist/${playlistId}?utm_source=generator&theme=0" width="100%" height="100%" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                       </body>
                     </html>
               `,
@@ -44,6 +44,8 @@ export default function Playlist() {
 
 const styles = StyleSheet.create({
   playlist: {
-    height: 200,
+    width: windowWidth,
+    flex: 1,
+    height: 500,
   },
 });

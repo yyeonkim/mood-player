@@ -17,22 +17,24 @@ const windowWidth = Dimensions.get("window").width;
 
 export default function Music({ route }) {
   const { keywords, gradientColor } = route.params;
+  const randomNum = Math.random() * 50;
 
   return keywords && gradientColor ? (
-    <LinearGradient colors={[gradientColor, "black"]} style={styles.container}>
+    <LinearGradient
+      colors={[gradientColor, "black", "black", "black"]}
+      style={styles.container}
+    >
       <StatusBar style="light" />
       <View style={styles.imageView}>
         <Image
           style={styles.backgroundImage}
           source={{
-            uri: `https://source.unsplash.com/random/?${keywords[0]},${keywords[1]}`,
+            uri: `https://source.unsplash.com/random/?${keywords[0]},${keywords[1]},${randomNum}`,
           }}
         />
       </View>
       <Text style={styles.text}>아무말 잔치</Text>
-      <View style={styles.playlistView}>
-        <Playlist />
-      </View>
+      <Playlist />
     </LinearGradient>
   ) : (
     <Loading />
@@ -53,10 +55,6 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
 
-  playlistView: {
-    width: windowWidth,
-  },
-
   backgroundImage: {
     height: 250,
     resizeMode: "cover",
@@ -65,6 +63,8 @@ const styles = StyleSheet.create({
   },
 
   text: {
+    paddingVertical: 40,
+    fontSize: 25,
     color: "white",
   },
 });

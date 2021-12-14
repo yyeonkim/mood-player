@@ -19,7 +19,7 @@ export const moodObj = [
       text: "편안해요",
       color: "#55efc4",
       selected: false,
-      keyword: "calm",
+      keyword: "chill",
     },
   ],
   [

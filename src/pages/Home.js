@@ -17,7 +17,7 @@ export default function Home({ navigation }) {
       <Text style={[styles.text, styles.subTitle]}>
         아래 키워드를 선택해주세요 (2개)
       </Text>
-      <Mood setCount={setCount} count={count} mood={mood} setMood={setMood} />
+      <Mood setCount={setCount} count={count} mood={mood} />
       <CompleteBtn mood={mood} count={count} navigation={navigation} />
     </View>
   );

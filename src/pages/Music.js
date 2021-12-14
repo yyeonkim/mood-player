@@ -1,30 +1,22 @@
 import React from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  StatusBar,
-  Image,
-  Dimensions,
-} from "react-native";
+import { StyleSheet, View, Text, StatusBar, Image } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
 import Playlist from "../components/Playlist";
 import Loading from "../components/Loading";
 
-const windowHeight = Dimensions.get("window").height;
-const windowWidth = Dimensions.get("window").width;
-
 export default function Music({ route }) {
+  const goBackIcon = "../../assets/outline_arrow_back_ios_white_24dp.png";
   const { keywords, gradientColor } = route.params;
-  const randomNum = Math.random() * 50;
+  const randomNum = Math.ceil(Math.random() * 50);
 
   return keywords && gradientColor ? (
     <LinearGradient
-      colors={[gradientColor, "black", "black", "black"]}
+      colors={[gradientColor, "#0B0B0B", "#0B0B0B", "#0B0B0B"]}
       style={styles.container}
     >
       <StatusBar style="light" />
+      <Image style={styles.icon} source={require(goBackIcon)} />
       <View style={styles.imageView}>
         <Image
           style={styles.backgroundImage}
@@ -46,7 +38,13 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
     flex: 1,
     alignItems: "center",
-    paddingTop: 80,
+    paddingTop: 90,
+  },
+
+  icon: {
+    position: "absolute",
+    top: 50,
+    left: 20,
   },
 
   imageView: {

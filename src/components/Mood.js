@@ -3,7 +3,7 @@ import { StyleSheet, View } from "react-native";
 
 import Keyword from "./Keyword";
 
-export default function Mood({ setCount, count, mood, setMood }) {
+export default function Mood({ setCount, count, mood }) {
   return (
     <View style={styles.keywordView}>
       <View style={styles.moodView}>

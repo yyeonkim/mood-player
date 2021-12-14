@@ -16,7 +16,7 @@ import Loading from "../components/Loading";
 export default function Music({ route, navigation }) {
   const goBackIcon = "../../assets/outline_arrow_back_ios_white_24dp.png";
   const { keywords, gradientColor } = route.params;
-  const randomNum = Math.ceil(Math.random() * 50);
+  const randomNum = Math.floor(Math.random() * 100);
 
   return keywords && gradientColor ? (
     <LinearGradient
@@ -36,12 +36,12 @@ export default function Music({ route, navigation }) {
         <Image
           style={styles.backgroundImage}
           source={{
-            uri: `https://source.unsplash.com/random/?${keywords[0]},${keywords[1]},${randomNum}`,
+            uri: `https://source.unsplash.com/random/?${keywords[0]}-${keywords[1]},${randomNum}`,
           }}
         />
       </View>
       <Text style={styles.text}>아무말 잔치</Text>
-      <Playlist />
+      <Playlist keywords={keywords} />
     </LinearGradient>
   ) : (
     <Loading />

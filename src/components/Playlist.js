@@ -2,11 +2,14 @@ import React from "react";
 import { StyleSheet, View, Dimensions } from "react-native";
 import WebView from "react-native-webview";
 
-const windowHeight = Dimensions.get("window").height;
-const windowWidth = Dimensions.get("window").width;
-const playlistId = "7ghvOyDA3MuhHgIdcKeGRf";
+import { playlists } from "../mood";
 
-export default function Playlist() {
+const windowWidth = Dimensions.get("window").width;
+
+export default function Playlist({ keywords }) {
+  const playlistTitle = `${keywords[0]}-${keywords[1]}`;
+  const playlistId = playlists[playlistTitle];
+
   return (
     <View style={styles.playlist}>
       <WebView

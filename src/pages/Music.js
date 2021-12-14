@@ -12,11 +12,14 @@ import { CommonActions } from "@react-navigation/native";
 
 import Playlist from "../components/Playlist";
 import Loading from "../components/Loading";
+import { playlists } from "../playlists";
 
 export default function Music({ route, navigation }) {
   const goBackIcon = "../../assets/outline_arrow_back_ios_white_24dp.png";
   const { keywords, gradientColor } = route.params;
   const randomNum = Math.floor(Math.random() * 100);
+  const playlistTitle = `${keywords[0]}-${keywords[1]}`;
+  const { comment } = playlists[playlistTitle];
 
   return keywords && gradientColor ? (
     <LinearGradient
@@ -40,7 +43,8 @@ export default function Music({ route, navigation }) {
           }}
         />
       </View>
-      <Text style={styles.text}>아무말 잔치</Text>
+      <Text style={styles.title}>{playlistTitle}</Text>
+      <Text style={styles.comment}>{comment}</Text>
       <Playlist keywords={keywords} />
     </LinearGradient>
   ) : (
@@ -66,6 +70,7 @@ const styles = StyleSheet.create({
     width: 250,
     height: 250,
     elevation: 5,
+    marginBottom: 25,
   },
 
   backgroundImage: {
@@ -75,9 +80,15 @@ const styles = StyleSheet.create({
     opacity: 0.7,
   },
 
-  text: {
-    paddingVertical: 40,
-    fontSize: 25,
+  comment: {
+    paddingBottom: 40,
+    fontSize: 20,
     color: "white",
+  },
+
+  title: {
+    fontSize: 15,
+    marginBottom: 8,
+    color: "rgba(256, 256, 256, 0.8)",
   },
 });

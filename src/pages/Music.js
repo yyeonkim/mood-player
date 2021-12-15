@@ -11,7 +11,6 @@ import { LinearGradient } from "expo-linear-gradient";
 import { CommonActions } from "@react-navigation/native";
 
 import Playlist from "../components/Playlist";
-import Loading from "../components/Loading";
 import { playlists } from "../playlists";
 
 export default function Music({ route, navigation }) {
@@ -21,35 +20,35 @@ export default function Music({ route, navigation }) {
   const playlistTitle = `${keywords[0]}-${keywords[1]}`;
   const { comment } = playlists[playlistTitle];
 
-  return keywords && gradientColor ? (
-    <LinearGradient
-      colors={[gradientColor, "#0B0B0B", "#0B0B0B", "#0B0B0B"]}
-      style={styles.container}
-    >
-      <StatusBar style="light" />
-      <Pressable
-        style={styles.icon}
-        onPressOut={() => {
-          navigation.dispatch(CommonActions.goBack());
-        }}
+  if (keywords && gradientColor) {
+    return (
+      <LinearGradient
+        colors={[gradientColor, "#0B0B0B", "#0B0B0B", "#0B0B0B"]}
+        style={styles.container}
       >
-        <Image source={require(goBackIcon)} />
-      </Pressable>
-      <View style={styles.imageView}>
-        <Image
-          style={styles.backgroundImage}
-          source={{
-            uri: `https://source.unsplash.com/random/?${keywords[0]}-${keywords[1]},${randomNum}`,
+        <StatusBar style="light" />
+        <Pressable
+          style={styles.icon}
+          onPressOut={() => {
+            navigation.dispatch(CommonActions.goBack());
           }}
-        />
-      </View>
-      <Text style={styles.title}>{playlistTitle}</Text>
-      <Text style={styles.comment}>{comment}</Text>
-      <Playlist keywords={keywords} />
-    </LinearGradient>
-  ) : (
-    <Loading />
-  );
+        >
+          <Image source={require(goBackIcon)} />
+        </Pressable>
+        <View style={styles.imageView}>
+          <Image
+            style={styles.backgroundImage}
+            source={{
+              uri: `https://source.unsplash.com/random/?${keywords[0]}-${keywords[1]},${randomNum}`,
+            }}
+          />
+        </View>
+        <Text style={styles.title}>{playlistTitle}</Text>
+        <Text style={styles.comment}>{comment}</Text>
+        <Playlist keywords={keywords} />
+      </LinearGradient>
+    );
+  }
 }
 
 const styles = StyleSheet.create({

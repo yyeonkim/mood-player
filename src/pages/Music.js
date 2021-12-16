@@ -7,8 +7,8 @@ import {
   Image,
   Pressable,
 } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
-import { CommonActions } from "@react-navigation/native";
+import { LinearGradient } from "expo-linear-gradient"; // gradient package
+import { CommonActions } from "@react-navigation/native"; // navigation package
 
 import Playlist from "../components/Playlist";
 import { playlists } from "../playlists";

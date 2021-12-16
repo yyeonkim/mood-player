@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 
 import Mood from "../components/Mood";
 import CompleteBtn from "../components/CompleteBtn";
-import { moodObj } from "../mood";
+import { moodObj } from "../mood"; // DB
 
 export default function Home({ navigation }) {
   const [count, setCount] = useState(0);

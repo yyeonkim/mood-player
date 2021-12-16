@@ -1,8 +1,8 @@
 import React from "react";
 import { StyleSheet, View, Dimensions } from "react-native";
-import WebView from "react-native-webview";
+import WebView from "react-native-webview"; // WebView package
 
-import { playlists } from "../playlists";
+import { playlists } from "../playlists"; // DB
 
 const windowWidth = Dimensions.get("window").width;
 

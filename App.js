@@ -1,4 +1,5 @@
 import * as React from "react";
+// React navigation package
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
